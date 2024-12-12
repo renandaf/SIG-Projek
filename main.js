@@ -2,6 +2,9 @@ import './style.css';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
+import Feature from 'ol/Feature';
 
 //lirabry tambahan
 import { Vector as VectorSource } from 'ol/source.js';
@@ -17,24 +20,6 @@ import {Fill, Stroke, Text} from 'ol/style';
 function getColorForId(fid) {
   const colors = ['#006400', '#00008b', '#b03060', '#ff4500', '#ffd700','#7fff00','#00ffff','#ff00ff','#6495ed','#ffdab9','#ff0000','#8b4513']; 
   return colors[fid % colors.length]; 
-}
-
-function filterPointsInsidePolygon(points, polygonFeature) {
-  const polygon = polygonFeature.getGeometry(); // Get the geometry of the polygon
-
-  if (!(polygon instanceof Polygon)) {
-      console.error('The provided feature is not a polygon.');
-      return [];
-  }
-
-  // Filter points that intersect with the polygon
-  return points.filter((pointFeature) => {
-      const point = pointFeature.getGeometry(); // Get the geometry of the point
-      if (point instanceof Point) {
-          return polygon.intersectsCoordinate(point.getCoordinates());
-      }
-      return false; // Ignore non-point geometries
-  });
 }
 
 // Untuk menampilkan polygon kecamatan dengan data .json
@@ -89,12 +74,22 @@ const banjir = new VectorLayer({
 });
 // End.
 
-kecamatan.getSource().once('change', () => {
-  if (kecamatan.getSource().getState() === 'ready') {
-    console.log(kecamatan.getSource().getFeatureById(5))
-  }
-});
+function filterPointsInsidePolygon(points, polygonFeature) {
+  const polygon = polygonFeature.getGeometry();
 
+  if (!(polygon instanceof Polygon)) {
+      console.error('The provided feature is not a polygon.');
+      return [];
+  }
+
+  return points.filter((pointFeature) => {
+      const point = pointFeature.getGeometry();
+      if (point instanceof Point) {
+          return polygon.intersectsCoordinate(point.getCoordinates());
+      }
+      return false;
+  });
+}
 const popup = new Overlay({
   element: document.getElementById('popup'),
   positioning: 'top-center',
@@ -116,6 +111,23 @@ const map = new Map({
     zoom: 12
   })
 });
+
+// banjir.getSource().on('addfeature', () => {
+//   var a = filterPointsInsidePolygon(banjir.getSource().getFeatures(), kecamatan.getSource().getFeatureById(5));
+
+//   const pointSource = new ol.source.Vector({
+//     features: a
+//     });
+
+//     // Create a vector layer to display the points
+//     const pointLayer = new ol.layer.Vector({
+//         source: pointSource
+//     });
+
+//     // Add the vector layer to the map
+//     map.addLayer(pointLayer);
+    
+// });
 
 map.addOverlay(popup);
 
