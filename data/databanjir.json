@@ -1,0 +1,545 @@
+{
+  "type" : "FeatureCollection",
+  "features" : [
+    {
+      "type" : "Feature",
+      "id" : 0,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4463099,
+          0.54828956790000005
+        ]
+      },
+      "properties" : {
+        "FID" : 0,
+        "NAMA" : "GCXW+7G8, Jl. Jend. Sudirman, Meranti Pandak, Kec. Rumbai Pesisir, Kota Pekanbaru, Riau",
+        "X" : 101.4463099,
+        "Y" : 0.54828956790000005,
+        "FOTO" : "images/gambar1.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 1,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4321211,
+          0.56559298199999997
+        ]
+      },
+      "properties" : {
+        "FID" : 1,
+        "NAMA" : "Jl. Harapan 6, Limbungan Baru, Kec. Rumbai Pesisir, Kota Pekanbaru, Riau 28266",
+        "X" : 101.4321211,
+        "Y" : 0.56559298199999997,
+        "FOTO" : "images/gambar2.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 2,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4384972,
+          0.54672179249999997
+        ]
+      },
+      "properties" : {
+        "FID" : 2,
+        "NAMA" : "Jl. Tugu Pembangunan, Meranti Pandak, Kec. Rumbai Pesisir, Kota Pekanbaru, Riau 28154",
+        "X" : 101.4384972,
+        "Y" : 0.54672179249999997,
+        "FOTO" : "images/gambar3.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 3,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4365943,
+          0.56183768199999995
+        ]
+      },
+      "properties" : {
+        "FID" : 3,
+        "NAMA" : "Jl. Harmonis 38, Limbungan Baru, Kec. Rumbai Pesisir, Kota Pekanbaru, Riau 28266",
+        "X" : 101.4365943,
+        "Y" : 0.56183768199999995,
+        "FOTO" : "images/gambar4.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 4,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4032567,
+          0.53540262090000001
+        ]
+      },
+      "properties" : {
+        "FID" : 4,
+        "NAMA" : "Jl. Riau Baru, Tampan, Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.4032567,
+        "Y" : 0.53540262090000001,
+        "FOTO" : "images/gambar5.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 5,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.3759677,
+          0.48220692780000002
+        ]
+      },
+      "properties" : {
+        "FID" : 5,
+        "NAMA" : "Jl. Bangau Sakti, Simpang Baru, Kec. Tampan, Kota Pekanbaru, Riau 28292",
+        "X" : 101.3759677,
+        "Y" : 0.48220692780000002,
+        "FOTO" : "images/gambar6.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 6,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.407274,
+          0.54250799999999999
+        ]
+      },
+      "properties" : {
+        "FID" : 6,
+        "NAMA" : "Gg. Filadelfia 1,Tampan, Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.407274,
+        "Y" : 0.54250799999999999,
+        "FOTO" : "images/gambar7.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 7,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.42542899999999,
+          0.56906900000000005
+        ]
+      },
+      "properties" : {
+        "FID" : 7,
+        "NAMA" : "Jl. Umban Sari,Umban Sari, Kec. Rumbai, Kota Pekanbaru, Riau 28266",
+        "X" : 101.42542899999999,
+        "Y" : 0.56906900000000005,
+        "FOTO" : "images/gambar8.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 8,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.425364,
+          0.53512199999999999
+        ]
+      },
+      "properties" : {
+        "FID" : 8,
+        "NAMA" : "Jl. Riau 18-16,Tampan, Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.425364,
+        "Y" : 0.53512199999999999,
+        "FOTO" : "images/gambar9.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 9,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.41023800000001,
+          0.53505899999999995
+        ]
+      },
+      "properties" : {
+        "FID" : 9,
+        "NAMA" : "Jl. Riau Ujung 138,Air Hitam, Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.41023800000001,
+        "Y" : 0.53505899999999995,
+        "FOTO" : "images/gambar10.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 10,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.425132,
+          0.54003500000000004
+        ]
+      },
+      "properties" : {
+        "FID" : 10,
+        "NAMA" : "Jl. Kulim 24,Tampan, Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.425132,
+        "Y" : 0.54003500000000004,
+        "FOTO" : "images/gambar11.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 11,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.42551,
+          0.53040299999999996
+        ]
+      },
+      "properties" : {
+        "FID" : 11,
+        "NAMA" : "Jl. Angkasa 26-20,Air Hitam, Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.42551,
+        "Y" : 0.53040299999999996,
+        "FOTO" : "images/gambar12.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 12,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.438104,
+          0.51094200000000001
+        ]
+      },
+      "properties" : {
+        "FID" : 12,
+        "NAMA" : "Jl. KH. Ahmad Dahlan No.87, Kp. Tengah, Kp. Melayu, Kec. Sukajadi, Kota Pekanbaru, Riau 28122",
+        "X" : 101.438104,
+        "Y" : 0.51094200000000001,
+        "FOTO" : "images/gambar13.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 13,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4265834,
+          0.54761300810000002
+        ]
+      },
+      "properties" : {
+        "FID" : 13,
+        "NAMA" : "Jl. Nelayan, Sri Meranti, Kec. Rumbai, Kota Pekanbaru, Riau",
+        "X" : 101.4265834,
+        "Y" : 0.54761300810000002,
+        "FOTO" : "images/gambar14.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 14,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4391181,
+          0.50049100769999999
+        ]
+      },
+      "properties" : {
+        "FID" : 14,
+        "NAMA" : "Jl. Paus, Kec. Marpoyan Damai, Kota Pekanbaru, Riau",
+        "X" : 101.4391181,
+        "Y" : 0.50049100769999999,
+        "FOTO" : "images/gambar15.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 15,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4685576,
+          0.51019571090000004
+        ]
+      },
+      "properties" : {
+        "FID" : 15,
+        "NAMA" : "Jl. Lembah Raya, Tengkerang Utara, Kec. Bukit Raya, Kota Pekanbaru, Riau 28115",
+        "X" : 101.4685576,
+        "Y" : 0.51019571090000004,
+        "FOTO" : "images/gambar16.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 16,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4201101,
+          0.45806556320000003
+        ]
+      },
+      "properties" : {
+        "FID" : 16,
+        "NAMA" : "Jl. Palaraya 328-332, Sidomulyo Tim., Kec. Marpoyan Damai, Kota Pekanbaru, Riau 28289",
+        "X" : 101.4201101,
+        "Y" : 0.45806556320000003,
+        "FOTO" : "images/gambar17.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 17,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.422478,
+          0.5204482279
+        ]
+      },
+      "properties" : {
+        "FID" : 17,
+        "NAMA" : "Jl. Gotong Royong, Labuh Baru Tim., Kec. Payung Sekaki, Kota Pekanbaru, Riau 28292",
+        "X" : 101.422478,
+        "Y" : 0.5204482279,
+        "FOTO" : "images/gambar18.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 18,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.45498600000001,
+          0.4966584631
+        ]
+      },
+      "properties" : {
+        "FID" : 18,
+        "NAMA" : "Jl. Gelatik, Tengkerang Tengah, Kec. Marpoyan Damai, Kota Pekanbaru, Riau 28128",
+        "X" : 101.45498600000001,
+        "Y" : 0.4966584631,
+        "FOTO" : "images/gambar19.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 19,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.42733051,
+          0.52822691040000003
+        ]
+      },
+      "properties" : {
+        "FID" : 19,
+        "NAMA" : "Jl. Lily 10-1, Labuh Baru Tim., Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.42733051,
+        "Y" : 0.52822691040000003,
+        "FOTO" : "images/gambar20.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 20,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.40739809999999,
+          0.53651345189999999
+        ]
+      },
+      "properties" : {
+        "FID" : 20,
+        "NAMA" : "Tampan, Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.40739809999999,
+        "Y" : 0.53651345189999999,
+        "FOTO" : "images/gambar21.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 21,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4646132,
+          0.51959180930000004
+        ]
+      },
+      "properties" : {
+        "FID" : 21,
+        "NAMA" : "Jl. Dwikora, Kec. Sail, Kota Pekanbaru, Riau",
+        "X" : 101.4646132,
+        "Y" : 0.51959180930000004,
+        "FOTO" : "images/gambar22.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 22,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4179346,
+          0.51750392410000001
+        ]
+      },
+      "properties" : {
+        "FID" : 22,
+        "NAMA" : "Jl. Dharma Bakti No.2, Labuh Baru Bar., Kec. Payung Sekaki, Kota Pekanbaru, Riau 28292",
+        "X" : 101.4179346,
+        "Y" : 0.51750392410000001,
+        "FOTO" : "images/gambar23.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 23,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.4255598,
+          0.52997647160000005
+        ]
+      },
+      "properties" : {
+        "FID" : 23,
+        "NAMA" : "Jl. Angkasa No.25, Air Hitam, Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.4255598,
+        "Y" : 0.52997647160000005,
+        "FOTO" : "images/gambar24.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 24,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.421042,
+          0.52359705779999999
+        ]
+      },
+      "properties" : {
+        "FID" : 24,
+        "NAMA" : "Jl. Jendral No.58, Labuh Baru Tim., Kec. Payung Sekaki, Kota Pekanbaru, Riau 28291",
+        "X" : 101.421042,
+        "Y" : 0.52359705779999999,
+        "FOTO" : "images/gambar25.png"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 25,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.448944,
+          0.44230199999999997
+        ]
+      },
+      "properties" : {
+        "FID" : 25,
+        "NAMA" : "Jl. Kaharuddin Nasution, Simpang Tiga, Kec. Bukit Raya, Kota Pekanbaru, Riau 28284",
+        "X" : 101.448944,
+        "Y" : 0.44230199999999997,
+        "FOTO" : "images/gambar26.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 26,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.418547,
+          0.46475300000000003
+        ]
+      },
+      "properties" : {
+        "FID" : 26,
+        "NAMA" : "Jl. Soekarno-Hatta, Sidomulyo Tim., Kec. Marpoyan Damai, Kota Pekanbaru, Riau 28289",
+        "X" : 101.418547,
+        "Y" : 0.46475300000000003,
+        "FOTO" : "images/gambar27.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 27,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.432923,
+          0.54512799999999995
+        ]
+      },
+      "properties" : {
+        "FID" : 27,
+        "NAMA" : "Jl. Nelayan 18, Sri Meranti, Kec. Rumbai, Kota Pekanbaru, Riau 28154",
+        "X" : 101.432923,
+        "Y" : 0.54512799999999995,
+        "FOTO" : "images/gambar28.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 28,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.454583,
+          0.49878400000000001
+        ]
+      },
+      "properties" : {
+        "FID" : 28,
+        "NAMA" : "Tengkerang Tengah, Kec. Marpoyan Damai, Kota Pekanbaru, Riau 28128",
+        "X" : 101.454583,
+        "Y" : 0.49878400000000001,
+        "FOTO" : "images/gambar29.jpg"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 29,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          101.41691,
+          0.59936900000000004
+        ]
+      },
+      "properties" : {
+        "FID" : 29,
+        "NAMA" : "Jl. Lintas Sumatra, Umban Sari, Kec. Rumbai, Kota Pekanbaru, Riau 28265",
+        "X" : 101.41691,
+        "Y" : 0.59936900000000004,
+        "FOTO" : "images/gambar30.jpg"
+      }
+    }
+  ]
+}
