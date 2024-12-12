@@ -14,15 +14,27 @@ import { Icon, Style } from 'ol/style.js';
 import Overlay from 'ol/Overlay.js';
 import {Fill, Stroke, Text} from 'ol/style';
 
-const container = document.getElementById('popup');
-const content_element = document.getElementById('popup-content');
-const closer = document.getElementById('popup-closer');
-//Create overlay popup
-
 function getColorForId(fid) {
-  // Example: Cycle through colors based on FID (adjust as needed)
   const colors = ['#006400', '#00008b', '#b03060', '#ff4500', '#ffd700','#7fff00','#00ffff','#ff00ff','#6495ed','#ffdab9','#ff0000','#8b4513']; 
   return colors[fid % colors.length]; 
+}
+
+function filterPointsInsidePolygon(points, polygonFeature) {
+  const polygon = polygonFeature.getGeometry(); // Get the geometry of the polygon
+
+  if (!(polygon instanceof Polygon)) {
+      console.error('The provided feature is not a polygon.');
+      return [];
+  }
+
+  // Filter points that intersect with the polygon
+  return points.filter((pointFeature) => {
+      const point = pointFeature.getGeometry(); // Get the geometry of the point
+      if (point instanceof Point) {
+          return polygon.intersectsCoordinate(point.getCoordinates());
+      }
+      return false; // Ignore non-point geometries
+  });
 }
 
 // Untuk menampilkan polygon kecamatan dengan data .json
@@ -36,14 +48,14 @@ const kecamatan = new VectorLayer({
     const fid = feature.getId(); 
     return new Style({
       fill: new Fill({
-        color: getColorForId(fid), // Get fill color based on FID
+        color: getColorForId(fid),
       }),
       stroke: new Stroke({
         color: '#333',
         width: 2,
       }),
       text: new Text({
-        font: '12px Calibri,sans-serif',
+        font: '15px Calibri,sans-serif',
         fill: new Fill({
           color: '#000',
         }),
@@ -51,7 +63,7 @@ const kecamatan = new VectorLayer({
           color: '#fff',
           width: 3,
         }),
-        text: feature.get('NAMOBJ'), // Access the 'name' property 
+        text: feature.get('NAMOBJ'),
       }),
     });
   },
@@ -77,23 +89,27 @@ const banjir = new VectorLayer({
 });
 // End.
 
-const overlay = new Overlay({
-  element: container,
-  autoPan: {
-    animation: {
-      duration: 250,
-    },
-  },
+kecamatan.getSource().once('change', () => {
+  if (kecamatan.getSource().getState() === 'ready') {
+    console.log(kecamatan.getSource().getFeatureById(5))
+  }
+});
+
+const popup = new Overlay({
+  element: document.getElementById('popup'),
+  positioning: 'top-center',
+  stopEvent: false,
+  offset: [0, -15]
 });
 //End.
 
 const map = new Map({
   target: 'map',
-  overlays:[overlay], // tambah overlay
+  overlays: [popup],// tambah overlay
   layers: [
     new TileLayer({
       source: new OSM()
-    }),kecamatan,banjir    //memanggil variasi data
+    }),kecamatan,banjir  //memanggil variasi data
   ],
   view: new View({
     center: fromLonLat([101.438309, 0.510440]),
@@ -101,27 +117,119 @@ const map = new Map({
   })
 });
 
-// map.addOverlay(overlay); //untuk menambah overlay
-// JS for click popup
+map.addOverlay(popup);
+
 map.on('singleclick', function (evt) {
-  const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
-    return feature;
+  const feature = map.forEachFeatureAtPixel(evt.pixel, function (feat) {
+    return feat;
   });
-  if (!feature) {
-    return;
+  if (feature.get('NAMA') != undefined) {
+    const coordinates = feature.getGeometry().getCoordinates();
+    const content = '<h3>Nama jalan:</h3>' + '<p>' +feature.get('NAMA') + '</p><br>' + '<img src="'+feature.get('FOTO')+'"></img>';
+    document.getElementById('popup-content').innerHTML = content;
+    popup.setPosition(coordinates);
+  } else {
+    popup.setPosition(undefined);
   }
-  const coordinate = evt.coordinate;
-  const content = '<h3>Nama jalan:</h3>' + '<p>' +feature.get('NAMA') + '</p><br>' + '<img src="'+feature.get('FOTO')+'"></img>';
-  
-  content_element.innerHTML = content;
-  overlay.setPosition(coordinate);
 });
 
-//Click handler to hide popup
-closer.onclick = function () {
-  overlay.setPosition(undefined);
-  closer.blur();
-  return false;
+const featureOverlay = new VectorLayer({
+  source: new VectorSource(),
+  map: map,
+  style: {
+    'stroke-color': 'rgba(255, 255, 255, 0.7)',
+    'stroke-width': 2,
+  },
+});
+
+let highlight;
+const highlightFeature = function (pixel) {
+  const feature = map.forEachFeatureAtPixel(pixel, function (feature) {
+    return feature;
+  });
+  if (feature !== highlight) {
+    if (highlight) {
+      featureOverlay.getSource().removeFeature(highlight);
+    }
+    if (feature) {
+      featureOverlay.getSource().addFeature(feature)
+        ;
+    }
+    highlight = feature;
+  }
 };
 
+const displayFeatureInfo = function (pixel) {
+  const feature = map.forEachFeatureAtPixel(pixel, function (feat) {
+    return feat;
+  });
+  const info = document.getElementById('info');
+  if (feature) {
+    info.innerHTML = feature.get('NAMOBJ') || '&nbsp;';
+  } else {
+    info.innerHTML = '&nbsp;';
+  }
+};
+
+map.on('pointermove', function (evt) {
+  if (evt.dragging) {
+    popup.setPosition(undefined);
+  }
+  const pixel = map.getEventPixel(evt.originalEvent);
+  highlightFeature(pixel);
+  displayFeatureInfo(pixel);
+});
+
+const rumbaiCheckbox = document.getElementById('rumbai');
+const rumbaiPesisirCheckbox = document.getElementById('rumbaipesisir');
+const senapelanCheckbox = document.getElementById('senapelan');
+const sukajadiCheckbox = document.getElementById('sukajadi');
+const tampanCheckbox = document.getElementById('tampan');
+const kotaCheckbox = document.getElementById('kota');
+const bukitRayaCheckbox = document.getElementById('bukitraya');
+const marpoyanDamaiCheckbox = document.getElementById('marpoyan');
+const sailCheckbox = document.getElementById('sail');
+const payungsekakiCheckbox = document.getElementById('payungsekaki');
+const limapuluhCheckbox = document.getElementById('limapuluh');
+const tenayanRayaCheckbox = document.getElementById('tenayanraya');
+
+rumbaiCheckbox.addEventListener('change', function () {
+  kabRiau.setVisible(polygonLayerCheckbox.checked);
+});
+
+rumbaiPesisirCheckbox.addEventListener('change', function () {
+  
+});
+
+senapelanCheckbox.addEventListener('change', function () {
+  
+});
+sukajadiCheckbox.addEventListener('change', function () {
+  
+});
+tampanCheckbox.addEventListener('change', function () {
+  
+});
+kotaCheckbox.addEventListener('change', function () {
+  
+});
+bukitRayaCheckbox.addEventListener('change', function () {
+  
+});
+marpoyanDamaiCheckbox.addEventListener('change', function () {
+  
+});
+sailCheckbox.addEventListener('change', function () {
+  
+});
+payungsekakiCheckbox.addEventListener('change', function () {
+  
+});
+
+limapuluhCheckbox.addEventListener('change', function () {
+  
+});
+tenayanRayaCheckbox.addEventListener('change', function () {
+  
+});
 
