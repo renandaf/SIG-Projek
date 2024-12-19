@@ -17,9 +17,28 @@ import { Icon, Style } from 'ol/style.js';
 import Overlay from 'ol/Overlay.js';
 import { Fill, Stroke, Text } from 'ol/style';
 
+function filterPointsInsidePolygon(points, polygonFeature) {
+  const polygon = polygonFeature.getGeometry();
+
+  if (!(polygon instanceof Polygon)) {
+    console.error('The provided feature is not a polygon.');
+    return [];
+  }
+
+  return points.filter((pointFeature) => {
+    const point = pointFeature.getGeometry();
+    if (point instanceof Point) {
+      var intersecPoint = polygon.intersectsCoordinate(point.getCoordinates())
+      return intersecPoint;
+    }
+    return false;
+  });
+}
+
 function getColorForId(fid) {
-  const colors = ['#edfbfd', '#c9f2fa', '#a6e9f6', '#82e0f3', '#5ed8ef', '#3acfec', '#17c6e8', '#13a8c5', '#1089a1', '#0c6b7d', '#094c59', '#052e36'];
-  return colors[fid % colors.length];
+  const colors = ['#052e36', '#094c59', '#0c6b7d', '#1089a1', '#13a8c5', '#17c6e8', '#3acfec', '#5ed8ef', '#82e0f3', '#a6e9f6', '#c9f2fa','#edfbfd'];
+  const feature = banjirCount.find(item => item.fid === fid);
+  return colors[feature.rank - 1];
 }
 
 // Untuk menampilkan polygon kecamatan dengan data .json
@@ -30,11 +49,7 @@ const kecamatan = new VectorLayer({
     url: 'data/BatasPekanbaruJSON.json'
   }),
   style: function (feature) {
-    const fid = feature.getId();
     return new Style({
-      fill: new Fill({
-        color: getColorForId(fid),
-      }),
       stroke: new Stroke({
         color: '#333',
         width: 2,
@@ -91,23 +106,6 @@ const banjir = new VectorLayer({
   })
 });
 // End.
-
-function filterPointsInsidePolygon(points, polygonFeature) {
-  const polygon = polygonFeature.getGeometry();
-
-  if (!(polygon instanceof Polygon)) {
-    console.error('The provided feature is not a polygon.');
-    return [];
-  }
-
-  return points.filter((pointFeature) => {
-    const point = pointFeature.getGeometry();
-    if (point instanceof Point) {
-      return polygon.intersectsCoordinate(point.getCoordinates());
-    }
-    return false;
-  });
-}
 
 var source = banjir.getSource();
 //custom source listener
@@ -178,7 +176,7 @@ let senapelanLayer;
 let sukajadiLayer;
 let tampanLayer;
 let tenayanrayaLayer;
-
+let banjirCount = [];
 source.on('change:loadend', function (evt) {
   var bukitraya = filterPointsInsidePolygon(source.getFeatures(), kecamatan.getSource().getFeatureById(0));
   var limapuluh = filterPointsInsidePolygon(source.getFeatures(), kecamatan.getSource().getFeatureById(1));
@@ -192,6 +190,49 @@ source.on('change:loadend', function (evt) {
   var sukajadi = filterPointsInsidePolygon(source.getFeatures(), kecamatan.getSource().getFeatureById(9));
   var tampan = filterPointsInsidePolygon(source.getFeatures(), kecamatan.getSource().getFeatureById(10));
   var tenayanraya = filterPointsInsidePolygon(source.getFeatures(), kecamatan.getSource().getFeatureById(11));
+
+  banjirCount.push({fid:0,count:bukitraya.length})
+  banjirCount.push({fid:1,count:limapuluh.length})
+  banjirCount.push({fid:2,count:marpoyandamai.length})
+  banjirCount.push({fid:3,count:payungsekaki.length})
+  banjirCount.push({fid:4,count:kota.length})
+  banjirCount.push({fid:5,count:rumbai.length})
+  banjirCount.push({fid:6,count:rumbaipesisir.length})
+  banjirCount.push({fid:7,count:sail.length})
+  banjirCount.push({fid:8,count:sukajadi.length})
+  banjirCount.push({fid:9,count:senapelan.length})
+  banjirCount.push({fid:10,count:tampan.length})
+  banjirCount.push({fid:11,count:tenayanraya.length})
+
+  banjirCount = [...banjirCount].sort((a, b) => b.count - a.count);
+
+  banjirCount.forEach((item, index) => {
+    item.rank = index + 1; // Rank starts from 1
+  });
+
+  kecamatan.setStyle(function (feature) {
+    const fid = feature.getId();
+    return new Style({
+      fill: new Fill({
+        color: getColorForId(fid),
+      }),
+      stroke: new Stroke({
+        color: '#333',
+        width: 2,
+      }),
+      text: new Text({
+        font: '15px Calibri,sans-serif',
+        fill: new Fill({
+          color: '#000',
+        }),
+        stroke: new Stroke({
+          color: '#fff',
+          width: 3,
+        }),
+        text: feature.get('NAMOBJ'),
+      }),
+    });
+  },)
 
   var layerStyle = new Style({
     image: new Icon(({
@@ -290,6 +331,7 @@ source.on('change:loadend', function (evt) {
   map.addLayer(tampanLayer);
   map.addLayer(tenayanrayaLayer);
 });
+
 
 map.addOverlay(popup);
 
