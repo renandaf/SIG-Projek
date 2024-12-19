@@ -18,13 +18,13 @@ import Overlay from 'ol/Overlay.js';
 import { Fill, Stroke, Text } from 'ol/style';
 
 function getColorForId(fid) {
-  const colors = ['#006400', '#00008b', '#b03060', '#ff4500', '#ffd700', '#7fff00', '#00ffff', '#ff00ff', '#6495ed', '#ffdab9', '#ff0000', '#8b4513'];
+  const colors = ['#ecf5fe','#c6e1fd','#a1ccfb','#7bb8fa','#55a4f8','#308ff7','#0a7bf5','#0868cf','#0755aa','#054284','#042f5e','#021c39'];
   return colors[fid % colors.length];
 }
 
 // Untuk menampilkan polygon kecamatan dengan data .json
 const kecamatan = new VectorLayer({
-  background: '#1a2b39',
+  background: '#e9eae9',
   source: new VectorSource({
     format: new GeoJSON(),
     url: 'data/BatasPekanbaruJSON.json'
@@ -84,9 +84,9 @@ const banjir = new VectorLayer({
       anchor: [0.5, 46],
       anchorXUnits: 'flaticon',
       anchorYUnits: 'pixels',
-      src: 'icon/flood.png',
-      width: 32,
-      height: 32
+      src: 'icon/b.png',
+      width: 35,
+      height: 35
     }))
   })
 });
@@ -198,9 +198,9 @@ source.on('change:loadend', function (evt) {
       anchor: [0.5, 46],
       anchorXUnits: 'flaticon',
       anchorYUnits: 'pixels',
-      src: 'icon/flood.png',
-      width: 32,
-      height: 32
+      src: 'icon/b.png',
+      width: 35,
+      height: 35
     }))
   })
 
@@ -299,7 +299,7 @@ map.on('singleclick', function (evt) {
   });
   if (feature.get('NAMA') != undefined) {
     const coordinates = feature.getGeometry().getCoordinates();
-    const content = '<h3>Nama jalan:</h3>' + '<p>' + feature.get('NAMA') + '</p><br>' + '<img src="' + feature.get('FOTO') + '"></img>';
+    const content = '<h7>Nama jalan:</h7>' + '<h6>' + feature.get('NAMA') + '</h6><br>' + '<img src="' + feature.get('FOTO') + '" width=400 height=200></img>';
     document.getElementById('popup-content').innerHTML = content;
     popup.setPosition(coordinates);
   } else {
