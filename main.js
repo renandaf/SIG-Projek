@@ -74,7 +74,7 @@ const kecamatan = new VectorLayer({
 const banjir = new VectorLayer({
   source: new VectorSource({
     loader: function () {
-      var url = 'http://localhost:5000/api/floods'
+      var url = 'http://localhost:5000/api/banjir'
       var format = new GeoJSON();
       var source = this;
 
