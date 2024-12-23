@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('data-form').addEventListener('submit', function (e) {
   e.preventDefault(); // Prevent the form from submitting normally
   const formData = new FormData();
-  formData.append('fid', document.getElementById('fid').value);
   formData.append('nama', document.getElementById('nama').value);
   formData.append('x', document.getElementById('x').value);
   formData.append('y', document.getElementById('y').value);

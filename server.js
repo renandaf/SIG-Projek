@@ -99,7 +99,9 @@ app.post("/api/banjir",upload.single('foto'),async (req, res) => {
     // Access the "Banjir" collection in the "SIG" database
     const database = client.db("SIG");
     const collection = database.collection("DataBanjir");
-    const { fid, nama, x, y, foto } = req.body;
+    const floods = await collection.find().toArray();
+    const fid = floods.length;
+    const { nama, x, y, foto } = req.body;
 
     const newData = {
       "type" : "Feature",

@@ -199,8 +199,8 @@ source.on('change:loadend', function (evt) {
   banjirCount.push({fid:5,count:rumbai.length})
   banjirCount.push({fid:6,count:rumbaipesisir.length})
   banjirCount.push({fid:7,count:sail.length})
-  banjirCount.push({fid:8,count:sukajadi.length})
-  banjirCount.push({fid:9,count:senapelan.length})
+  banjirCount.push({fid:8,count:senapelan.length})
+  banjirCount.push({fid:9,count:sukajadi.length})
   banjirCount.push({fid:10,count:tampan.length})
   banjirCount.push({fid:11,count:tenayanraya.length})
 
@@ -209,6 +209,8 @@ source.on('change:loadend', function (evt) {
   banjirCount.forEach((item, index) => {
     item.rank = index + 1; // Rank starts from 1
   });
+
+  console.log(banjirCount)
 
   kecamatan.setStyle(function (feature) {
     const fid = feature.getId();
